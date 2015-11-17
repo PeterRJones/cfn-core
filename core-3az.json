@@ -1346,7 +1346,18 @@
                 "mode": "000444",
                 "owner": "root",
                 "group": "root"
-              }
+              },
+              "/etc/awslogs/awscli.conf": {
+                "content": { "Fn::Join": [ "", [
+                  "[plugins]\n",
+                  "cwlogs = cwlogs\n",
+                  "[default]\n",
+                  "region = ", { "Ref" : "AWS::Region" }, "\n"
+                ] ] },
+                "mode": "000444",
+                "owner": "root",
+                "group": "root"
+              }                                            
             },
             "commands" : {
               "01_create_state_directory" : {
